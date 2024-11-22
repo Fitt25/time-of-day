@@ -5,8 +5,11 @@
     <title>Time of Day</title>
     <meta name="robots" content="noindex,nofollow">
     <style>
-		* {padding:0; margin:0;}
-		html {background-color:#ccc;}
+		
+		@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash0&family=Lexend+Tera:wght@100..900&family=BioRhyme:wght@200..800&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Syncopate:wght@400;700&display=swap');
+
+		* {padding: 5px; margin:5px;}
+		html {background-color:#ffffffdf;}
 		body {
 			font-family: Arial, Helvetica, sans-serif;
 			max-width:960px; /* keeps from getting too large on wide screen */
@@ -15,6 +18,7 @@
 			background-color:#fff;
 			padding:20px;
 			min-height:100%; /* keeps from getting too large on wide screen */
+			border-radius: 1cap;
 			}
 		img.flexible {
 			float: right;
@@ -22,31 +26,62 @@
 			padding:20px;
 			max-width:300px; /* actual size of image */
 			width:33%; /* approximate size taken on screen in maximum view */
+			border-radius: 5em;
 		}
 		p {
 			margin:10px;
 			text-align: justify;
 		}
+		.container{
+			display:flex;
+			align-items: flex-start;
+		}
+		.column{
+			display: block;
+			background-color: #ffffff35;
+			background-size: cover;
+			border-radius: 2cap;
+		}
+		
+
 		h2,h3,h4,h5,h6{
 			font-weight:normal;
 			margin:10px;
 			}
 		h1.masthead {
+			top: 0;
+			left: 0;
+			width: 100%;
+			background: #ffffff35;
+			padding: 15px 0;
+			text-align: center;
 			margin: auto;
 			text-align: center;
-			background-color: rgba(255, 255, 255, 0.364);
-			background-size: cover;
-			line-height: 2.5em;
-			width: 100%;
-			box-sizing: border-box;
-			height: auto;
+			font-family: "Lexend Tera", sans-serif;
+			font-optical-sizing: auto;
+			font-weight: 500;
+			font-style: normal;
+			box-shadow: 10px 10px rgba(70, 69, 67, 0.453);
 		}
+		
 		h3.sub {
 			text-align: center;
-			font-weight: bold;
+			font-family: "Lexend Tera", sans-serif;
+			font-optical-sizing: auto;
+			font-weight: 300;
+			font-style: normal;
 		}
 		#my-greeting{
 			font-size: 2em;
+			text-align: center;
+			font-family: "BioRhyme", serif;;
+			font-optical-sizing: auto;
+		}
+
+		#my-day{
+			text-align: center;
+			font-family: "BioRhyme", serif;;
+			font-optical-sizing: auto;
 		}
 		.footer {
 			text-align:center;
@@ -54,23 +89,29 @@
 		}
     </style>
 </head>
+	
 <body>
 	<header>
 		<h1 class="masthead">Time of Day</h1>
 	</header>
     <main>
 	 <header><h3 class="sub">A JavaScript Project by Linda Fitt</h3></header>
-	 <h3 id="my-greeting">Greeting goes here! </h3>
-	 <h3 id="my-day">Today's Date goes here</h3>
-
-	    <p>
-			"Time of Day" is an interactive JavaScript project designed to adapt dynamically to the time of day. The website changes its background color and images to reflect whether it's morning, afternoon, evening, or night. It also displays a personalized greeting to match the time of day, making the experience more engaging. Additionally, the project includes a live display of the current day of the week and updates the year automatically to stay current.
-		</p>
-
-		<p>
-			This project showcases the use of JavaScript's Date object and DOM manipulation to create a dynamic, time-sensitive user experience.
-		</p>
-	  <img src="http://dummyimage.com/300x400" alt="Time of Day Image" class="flexible" id="my-pic">
+	 <div class="container">
+		<div class="column">
+			<h3 id="my-greeting">Greeting goes here! </h3>
+	 		<h3 id="my-day">Today's Date goes here</h3>
+			<p>
+				"Time of Day" is an interactive JavaScript project designed to adapt dynamically to the time of day. The website changes its background color and images to reflect whether it's morning, afternoon, evening, or night. It also displays a personalized greeting to match the time of day, making the experience more engaging. Additionally, the project includes a live display of the current day of the week and updates the year automatically to stay current.
+			</p>
+	
+			<p>
+				This project showcases the use of JavaScript's Date object and DOM manipulation to create a dynamic, time-sensitive user experience.
+			</p>
+		</div>
+	    
+		<img src="http://dummyimage.com/300x400" alt="Time of Day Image" class="flexible" id="my-pic">
+	 </div>
+	 	  
      <footer>
       <p class = "footer"><small> <span id="my-year"> Year goes here </span>
           <a id="html-checker" href="#" target="_blank">Check HTML</a> ~ 
@@ -112,7 +153,7 @@ else if (myHour >= 12 && myHour < 18){
 else if (myHour >= 18 && myHour < 23){
    //alert("good evening?");
    mySentence = "Good Evening!";
-   myColor = "#fea56f";
+   myColor = "#feddca";
    myPic = "evening.jpg";
 }else {
    //alert("good night?");
@@ -129,7 +170,7 @@ document.getElementById("my-pic").src = myPic;
 
 document.getElementById("my-year").innerHTML = "&copy; 2024-" + myYear + " by Linda Fitt, All Rights Reserved ~";
 
-document.getElementById("my-day").innerHTML = "Today is " + day;
+document.getElementById("my-day").innerHTML = "Today is " + day + "... Happy " + day + "! &#128516;";
 
 
 
